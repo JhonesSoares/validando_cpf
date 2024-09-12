@@ -1,3 +1,24 @@
+import re
+
+def cpf_usuario():
+    cpf_informado = input('Digite seu CPF para validação: ').replace('.', '').replace('-', '')
+    
+    def validar_input(valor): # Verifica se o valor é uma string
+        if not isinstance(valor, str):
+            return False
+        
+        padrao = r'^\d{11}$' # Define o padrão de regex para exatamente 11 dígitos
+        
+        if re.match(padrao, valor): # Verifica se o valor corresponde ao padrão
+            return True
+        return False
+
+    if validar_input(cpf_informado):
+        return cpf_informado
+    
+    print("CPF incorreto!")
+    return cpf_usuario()
+
 
 def iterador_digitos(digitos, contador):
     res = 0
@@ -35,5 +56,5 @@ def validando_cpf_usuario(cpf):
     return 'CPF inválido!'
 
 
-CPF_USUARIO = '37316703059'
+CPF_USUARIO = str(cpf_usuario())
 print(validando_cpf_usuario(CPF_USUARIO))
