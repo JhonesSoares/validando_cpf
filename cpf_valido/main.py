@@ -32,9 +32,8 @@ def validando_cpf_usuario(cpf):
 
     if cpf == calculo_cpf:
         return 'CPF válido!'
-    
     return 'CPF inválido!'
 
 
-CPF_USUARIO = '01884095216'
+CPF_USUARIO = '37316703059'
 print(validando_cpf_usuario(CPF_USUARIO))
